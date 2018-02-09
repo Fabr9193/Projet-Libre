@@ -6,7 +6,7 @@ var app = express();
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'admin'
+    password : ''
 });
 
 connection.query('USE auteurs');
@@ -20,7 +20,14 @@ app.get('/', function(req, res){
     connection.query('SELECT * FROM user as result', function(err, rows){
         console.log('user', rows[0]);
     });
+
+    connection.query('SELECT * FROM book as result', function(err, rows){
+        console.log('book', rows[0]);
+    });
+
+
 });
+
 
 app.listen(app.get('port'));
 console.log('Express server listening on port ' + app.get('port'));
