@@ -25,4 +25,9 @@ function connectDb() {
     ).connect();
 }
 
+
+exports.create_user = function (req, res) {
+    var db = connectDb();
+
+}
 module.exports = router;

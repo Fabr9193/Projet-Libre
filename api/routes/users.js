@@ -1,11 +1,18 @@
-// var express = require('express');
-// var router = express.Router();
-//
-//
-// /* GET users listing. */
-// router.get('/user', function(req, res, next) {
-//
-//   res.send('respond with a resource');
-// });
-//
-// module.exports = router;
+var express = require('express');
+var router = express.Router();
+
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+
+  res.send('respond with a resource');
+});
+
+router.get('/:testId', function(req, res, next) {
+
+  res.send('respond with a resource' + req.params.testId);
+});
+
+
+
+module.exports = router;
