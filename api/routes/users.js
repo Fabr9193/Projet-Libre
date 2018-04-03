@@ -20,7 +20,14 @@ router.post('/', function (req, res, next){
 });
 
 router.get('/:testId', function(req, res, next) {
-  res.send('respond with a resource' + req.params.testId);
+    //req.params.testId
+    models.user.findById(req.params.testId).then((users) => {
+        res.send(users);
+
+})
+
+
+
 });
 
 

@@ -4,13 +4,13 @@ var db = require('mysql');
 var models = require('../models');
 var bcrypt = require('bcrypt');
 
-create_book = function create_book (req, res) {
-    console.log(req.body.username);
+create_new_book = function create_book (req, res) {
     var title = req.body.title;
     var synopsis = req.body.synopsis;
     var content = req.body.content;
     var authorId = req.body.authorId;
-    if (password !==null || username !== null) {
+    console.log(req.body);
+    if (title !== null || content !== null) {
         var book = models.book.build({
             title: title,
             synopsis: synopsis,
@@ -29,14 +29,13 @@ create_book = function create_book (req, res) {
 
 
 function get_book_list(req, res) {
-    var retValue = null;
-    models.user.findAll().then(function(users) {
-        console.log(users.toJSON());
-        return users;
+    models.book.findAll().then(function(books) {
+        console.log(books);
+        return (books);
     });
 
 }
 module.exports = {
-    create_book: create_book,
+    create_book: create_new_book,
     get_book_list:get_book_list
 };

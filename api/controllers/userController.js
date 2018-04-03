@@ -4,7 +4,7 @@ var db = require('mysql');
 var models = require('../models');
 var bcrypt = require('bcrypt');
 
-create_book = function create_user (req, res) {
+create_new_user = function create_user (req, res) {
     console.log(req.body.username);
     var username = req.body.username;
     var password = req.body.password;
@@ -37,6 +37,6 @@ function get_user_list(req, res) {
 
 }
 module.exports = {
-    create_user: create_book,
+    create_user: create_new_user,
     get_user_list:get_user_list
 };
